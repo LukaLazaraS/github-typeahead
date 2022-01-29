@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
-    this.appService.getUsers(this.usernameSearchInput.value).subscribe(data => {
+    this.appService.getUsers("").subscribe(data => {
       data.items.forEach((user: { avatar_url: any; login: any; html_url: any; }) => {
         this.users.push({ img: user.avatar_url, username: user.login, link: user.html_url });
       });
@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
     this.delayTimer = setTimeout(() => {
       this.appService.getUsers(this.usernameSearchInput.value).subscribe(data => {
         console.log(data);
+        console.log(this.usernameSearchInput.value);
         this.users = [];
         data.items.forEach((user: { avatar_url: any; login: any; html_url: any; }) => {
           this.users.push({ img: user.avatar_url, username: user.login, link: user.html_url });
