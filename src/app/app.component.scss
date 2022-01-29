@@ -1,0 +1,95 @@
+@import "../assets/color-palette.scss";
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 12vh;
+
+  color: $font-color;
+  background-color: $background-middle;
+
+  h1 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  i {
+    font-size: 28px;
+  }
+}
+
+main {
+  margin-top: 30px;
+  height: 80vh;
+  width: 55vw;
+  padding-top: 30px;
+  background-color: $background-middle;
+
+  border: 1px solid rgb(63, 62, 62);
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5%;
+
+  input {
+    max-width: 70%;
+    height: 40px;
+  }
+
+  ul {
+    width: 85%;
+    height: 85%;
+
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25% 25% 25% 25%;
+
+    // display: flex;
+    // justify-content: flex-start;
+    // align-items: center;
+    // flex-wrap: wrap;
+    // gap: 20px;
+
+    li {
+      border: 1px solid rgb(63, 62, 62);
+      background-color: $background-light;
+      border-radius: 3px;
+      margin: 5px;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+      
+      cursor: pointer;
+      
+      &:hover {
+        background-color: $background-dark;
+        transition: 0.3s;
+        transition-timing-function: cubic-bezier(.53,-0.01,.83,.67);
+        img {
+          height: 90%;
+          transition: 0.3s;
+          transition-timing-function: cubic-bezier(.53,-0.01,.83,.67);
+        }
+        p {
+          display: none;
+        }
+      }
+
+      img {
+        height: 70%;
+      }
+
+      p{
+        height: auto;
+        color: $font-color;
+      }
+    }
+  }
+}

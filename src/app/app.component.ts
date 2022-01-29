@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs';
+import { AppService } from './app.service';
+import { User } from './user.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +11,27 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'github-typeahead';
+  users: User[] = [];
+  delayTimer: any;
+
+  usernameSearchInput = new FormControl();
+
+  constructor(private appService: AppService) { }
+
+  onUsernameChange() {
+    clearTimeout(this.delayTimer);
+    this.delayTimer = setTimeout(() => {
+      this.appService.getUsers(this.usernameSearchInput.value).subscribe(data => {
+        console.log(data);
+        this.users = [];
+        data.items.forEach((user: { avatar_url: any; login: any; html_url: any; }) => {
+          this.users.push({ img: user.avatar_url, username: user.login, link: user.html_url });
+        });
+      })
+    }, 500);
+  }
+
+  onClickUser(link: string) {
+    window.location.href = link;
+  }
 }

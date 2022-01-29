@@ -1,1 +1,19 @@
-<button type="button" class="btn btn-primary">Primary</button>
+<header>
+  <i class="bi bi-github"></i>
+  <h1>GitHub Typeahead</h1>
+</header>
+  
+<main class="container">
+  <input 
+    type="text"
+    class="form-control bg-light"
+    [formControl]="usernameSearchInput"
+    (input)="onUsernameChange()"
+    placeholder="Search GitHub users..." 
+    aria-label="Username" 
+    aria-describedby="basic-addon1"
+    >
+  <ul>
+    <li *ngFor="let user of users" (click)="onClickUser(user.link)"><img src="{{user.img}}"><p>{{user.username}}</p></li>
+  </ul>
+</main>
