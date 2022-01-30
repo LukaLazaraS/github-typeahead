@@ -36,6 +36,18 @@ main {
   align-items: center;
   gap: 5%;
 
+  @media only screen and (max-width: $laptop){
+    width: 70vw;
+  }
+
+  @media only screen and (max-width: $tablet){
+    width: 80vw;
+  }
+
+  @media only screen and (max-width: $mobile){
+    width: 90vw;
+  }
+
   input {
     max-width: 70%;
     height: 40px;
@@ -55,7 +67,7 @@ main {
     }
     
     @media only screen and (max-width: $mobile){
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 33% 33% 33%;
       grid-template-rows: 33% 33% 33%;
     }
 
