@@ -1,4 +1,5 @@
 @import "../assets/color-palette.scss";
+@import "../assets/responsive.scss";
 
 header {
   display: flex;
@@ -23,7 +24,7 @@ header {
 main {
   margin-top: 30px;
   height: 80vh;
-  width: 55vw;
+  width: 50vw;
   padding-top: 30px;
   background-color: $background-middle;
 
@@ -47,6 +48,16 @@ main {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 25% 25% 25% 25%;
+    overflow: hidden;
+    @media only screen and (max-width: $tablet){
+      grid-template-columns: 33% 33% 33%;
+      grid-template-rows: 33% 33% 33%;
+    }
+    
+    @media only screen and (max-width: $mobile){
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 33% 33% 33%;
+    }
 
     // display: flex;
     // justify-content: flex-start;
@@ -64,6 +75,12 @@ main {
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      font-size: 20px;
+      @media only screen and (max-width: $laptop){
+        font-size: 13px;
+        gap: 5px;
+      }
+
       gap: 10px;
       
       cursor: pointer;
@@ -84,6 +101,10 @@ main {
 
       img {
         height: 70%;
+        @media only screen and (max-width: $mobile){
+          width: 80%;
+          height: auto;
+        }
       }
 
       p{
