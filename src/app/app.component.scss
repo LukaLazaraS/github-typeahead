@@ -65,6 +65,11 @@ main {
       grid-template-columns: 33% 33% 33%;
       grid-template-rows: 33% 33% 33%;
     }
+    
+    @media only screen and (max-width: $mobile){
+      grid-template-columns: 33% 33% 33%;
+      grid-template-rows: 25% 25% 25% 25%;
+  }
 
     li {
       border: 1px solid rgb(63, 62, 62);
@@ -72,7 +77,7 @@ main {
       border-radius: 3px;
       margin: 6px;
       
-      display: flex;  
+      display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -107,7 +112,7 @@ main {
       img {
         height: 70%;
         @media only screen and (max-width: $mobile){
-          width: 80%;
+          width: 70%;
           height: auto;
         }
       }
