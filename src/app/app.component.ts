@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { AppService } from './app.service';
-import { User } from './user.model';
+import { User, UserFromApi } from './user.model';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.appService.getUsers("").subscribe(data => {
-      data.items.forEach((user: { avatar_url: any; login: any; html_url: any; }) => {
+      data.items.forEach((user: UserFromApi) => {
         this.users.push({ img: user.avatar_url, username: user.login, link: user.html_url });
       });
     })
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
         console.log(data);
         console.log(this.usernameSearchInput.value);
         this.users = [];
-        data.items.forEach((user: { avatar_url: any; login: any; html_url: any; }) => {
+        data.items.forEach((user: UserFromApi) => {
           this.users.push({ img: user.avatar_url, username: user.login, link: user.html_url });
         });
       })
